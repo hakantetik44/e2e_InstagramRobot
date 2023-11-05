@@ -26,7 +26,9 @@ Boş bir kullanıcı adı ve şifreyle giriş yap
   Kullanıcı adı ve şifre alanlarını boş bırakın ve kontrol edin
 
 
-
+Boş bir kullanıcı adı ve şifreyle giriş yap
+  Instagram giriş sayfasina başarı ile bağlandığını dogrula
+  Kullanıcı adı ve şifre alanlarını boş bırakın ve kontrol edin
 
 
 
