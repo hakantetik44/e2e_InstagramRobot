@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231105 16:05:14.278" rpa="false" schemaversion="4">
+<suite id="s1" name="InstagramTests" source="C:\Users\maruf\IdeaProjects\e2e_InstagramRobot\tests\InstagramTests.robot">
+<test id="s1-t1" name="Başarılı instagram sayfası testi" line="13">
+<kw name="Instagram anasayfasina git" library="InstagramPage" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Datas.UrlInsta}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231105 16:05:14.521" level="INFO">Opening browser 'chrome' to base url 'https://www.instagram.com/accounts/login/?hl=fr'.</msg>
+<status status="PASS" starttime="20231105 16:05:14.519" endtime="20231105 16:05:16.714"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231105 16:05:16.714" endtime="20231105 16:05:16.839"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231105 16:05:16.841" endtime="20231105 16:05:16.845"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.AccepterCookies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:16.848" level="INFO">Clicking element 'xpath=//button[text()='Autoriser tous les cookies']'.</msg>
+<status status="PASS" starttime="20231105 16:05:16.846" endtime="20231105 16:05:17.166"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:14.519" endtime="20231105 16:05:17.166"/>
+</kw>
+<kw name="Instagram giriş sayfasina başarı ile bağlandığını dogrula" library="InstagramPage">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actualFaceBaglanText}</var>
+<arg>${InsLocators.btnFaceBaglan}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:17.218" level="INFO">${actualFaceBaglanText} = Se connecter avec Facebook</msg>
+<status status="PASS" starttime="20231105 16:05:17.168" endtime="20231105 16:05:17.218"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actualFaceBaglanText}</arg>
+<arg>${Datas.ExpectedBtnFaceTexti}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231105 16:05:17.218" endtime="20231105 16:05:17.219"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${Datas.TitleBaglanti}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231105 16:05:17.229" level="INFO">Page title is 'Connexion • Instagram'.</msg>
+<status status="PASS" starttime="20231105 16:05:17.219" endtime="20231105 16:05:17.230"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:17.167" endtime="20231105 16:05:17.230"/>
+</kw>
+<kw name="Kullanıcı adını ve şifreyi gir" library="InstagramPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.placeUsername}</arg>
+<arg>${Datas.Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:17.231" level="INFO">Typing text 'playhakanqa@outlook.com' into text field 'css=input[name='username']'.</msg>
+<status status="PASS" starttime="20231105 16:05:17.230" endtime="20231105 16:05:17.449"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.placePassword}</arg>
+<arg>${Datas.Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:17.450" level="INFO">Typing text 'PayLead' into text field 'css=input[name='password']'.</msg>
+<status status="PASS" starttime="20231105 16:05:17.449" endtime="20231105 16:05:17.637"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231105 16:05:19.638" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231105 16:05:17.637" endtime="20231105 16:05:19.638"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.btnGiris}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:19.639" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231105 16:05:19.638" endtime="20231105 16:05:19.718"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:17.230" endtime="20231105 16:05:19.718"/>
+</kw>
+<kw name="Anasaya başarılı bir şekilde bağlandığını dogrula" library="InstagramPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Instagram</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231105 16:05:19.718" endtime="20231105 16:05:19.738"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:19.718" endtime="20231105 16:05:19.738"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231105 16:05:19.738" endtime="20231105 16:05:21.837"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:14.519" endtime="20231105 16:05:21.837"/>
+</test>
+<test id="s1-t2" name="Instagram'a geçersiz şifreyle giriş" line="18">
+<kw name="Instagram anasayfasina git" library="InstagramPage" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Datas.UrlInsta}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231105 16:05:21.839" level="INFO">Opening browser 'chrome' to base url 'https://www.instagram.com/accounts/login/?hl=fr'.</msg>
+<status status="PASS" starttime="20231105 16:05:21.838" endtime="20231105 16:05:23.918"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231105 16:05:23.918" endtime="20231105 16:05:24.269"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231105 16:05:24.269" endtime="20231105 16:05:24.270"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.AccepterCookies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:24.271" level="INFO">Clicking element 'xpath=//button[text()='Autoriser tous les cookies']'.</msg>
+<status status="PASS" starttime="20231105 16:05:24.271" endtime="20231105 16:05:24.385"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:21.838" endtime="20231105 16:05:24.385"/>
+</kw>
+<kw name="Geçersiz şifreyi gir" library="InstagramPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.placeUsername}</arg>
+<arg>${Datas.Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:24.386" level="INFO">Typing text 'playhakanqa@outlook.com' into text field 'css=input[name='username']'.</msg>
+<status status="PASS" starttime="20231105 16:05:24.385" endtime="20231105 16:05:24.533"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.placePassword}</arg>
+<arg>${Datas.GeçersizSifre}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:24.535" level="INFO">Typing text 'fdsqfsqfsdq' into text field 'css=input[name='password']'.</msg>
+<status status="PASS" starttime="20231105 16:05:24.533" endtime="20231105 16:05:24.642"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231105 16:05:26.642" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231105 16:05:24.642" endtime="20231105 16:05:26.642"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.btnGiris}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:26.643" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231105 16:05:26.642" endtime="20231105 16:05:26.702"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:24.385" endtime="20231105 16:05:26.702"/>
+</kw>
+<kw name="Hata mesajını dogrula" library="InstagramPage">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${SifreHataMesaji}</var>
+<arg>${InsLocators.placaHataMesaji}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:27.442" level="INFO">${SifreHataMesaji} = Votre mot de passe est incorrect. Veuillez le vérifier.</msg>
+<status status="PASS" starttime="20231105 16:05:26.703" endtime="20231105 16:05:27.444"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${SifreHataMesaji}</arg>
+<arg>${Datas.expectedHataMesajiYanlisSifre}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231105 16:05:27.444" endtime="20231105 16:05:27.444"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:26.702" endtime="20231105 16:05:27.444"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231105 16:05:27.445" endtime="20231105 16:05:29.610"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:21.838" endtime="20231105 16:05:29.610"/>
+</test>
+<test id="s1-t3" name="Instagram'a geçersiz kullanıcı adı ile giriş" line="22">
+<kw name="Instagram anasayfasina git" library="InstagramPage" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Datas.UrlInsta}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231105 16:05:29.612" level="INFO">Opening browser 'chrome' to base url 'https://www.instagram.com/accounts/login/?hl=fr'.</msg>
+<status status="PASS" starttime="20231105 16:05:29.611" endtime="20231105 16:05:31.659"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231105 16:05:31.661" endtime="20231105 16:05:32.016"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231105 16:05:32.017" endtime="20231105 16:05:32.020"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.AccepterCookies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:32.021" level="INFO">Clicking element 'xpath=//button[text()='Autoriser tous les cookies']'.</msg>
+<status status="PASS" starttime="20231105 16:05:32.020" endtime="20231105 16:05:32.125"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:29.611" endtime="20231105 16:05:32.125"/>
+</kw>
+<kw name="Geçersiz kullanıcı adı gir" library="InstagramPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.placeUsername}</arg>
+<arg>${Datas.GeçersizKullaniciAdi}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:32.127" level="INFO">Typing text 'fsfsdqfdsq@gmail.com' into text field 'css=input[name='username']'.</msg>
+<status status="PASS" starttime="20231105 16:05:32.126" endtime="20231105 16:05:32.298"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.placePassword}</arg>
+<arg>${Datas.Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:32.301" level="INFO">Typing text 'PayLead' into text field 'css=input[name='password']'.</msg>
+<status status="PASS" starttime="20231105 16:05:32.299" endtime="20231105 16:05:32.455"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231105 16:05:34.458" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231105 16:05:32.456" endtime="20231105 16:05:34.458"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.btnGiris}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:34.459" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231105 16:05:34.458" endtime="20231105 16:05:34.520"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:32.126" endtime="20231105 16:05:34.521"/>
+</kw>
+<kw name="Kullanıcı adı hata mesajını dogrula" library="InstagramPage">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${SifreHataMesaji}</var>
+<arg>${InsLocators.placaHataMesaji}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:34.907" level="INFO">${SifreHataMesaji} = Désolé, votre mot de passe est incorrect. Veuillez vérifier votre mot de passe.</msg>
+<status status="PASS" starttime="20231105 16:05:34.521" endtime="20231105 16:05:34.907"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${SifreHataMesaji}</arg>
+<arg>${Datas.expectedHataMesajiYanlisKullaniciAdi}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231105 16:05:34.908" endtime="20231105 16:05:34.910"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:34.521" endtime="20231105 16:05:34.910"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231105 16:05:34.910" endtime="20231105 16:05:37.056"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:29.610" endtime="20231105 16:05:37.056"/>
+</test>
+<test id="s1-t4" name="Boş bir kullanıcı adı ve şifreyle giriş yap" line="26">
+<kw name="Instagram anasayfasina git" library="InstagramPage" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Datas.UrlInsta}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231105 16:05:37.059" level="INFO">Opening browser 'chrome' to base url 'https://www.instagram.com/accounts/login/?hl=fr'.</msg>
+<status status="PASS" starttime="20231105 16:05:37.058" endtime="20231105 16:05:39.166"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231105 16:05:39.166" endtime="20231105 16:05:39.311"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231105 16:05:39.311" endtime="20231105 16:05:39.314"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.AccepterCookies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:39.318" level="INFO">Clicking element 'xpath=//button[text()='Autoriser tous les cookies']'.</msg>
+<status status="PASS" starttime="20231105 16:05:39.316" endtime="20231105 16:05:39.629"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:37.058" endtime="20231105 16:05:39.630"/>
+</kw>
+<kw name="Instagram giriş sayfasina başarı ile bağlandığını dogrula" library="InstagramPage">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actualFaceBaglanText}</var>
+<arg>${InsLocators.btnFaceBaglan}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:39.673" level="INFO">${actualFaceBaglanText} = Se connecter avec Facebook</msg>
+<status status="PASS" starttime="20231105 16:05:39.630" endtime="20231105 16:05:39.674"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${actualFaceBaglanText}</arg>
+<arg>${Datas.ExpectedBtnFaceTexti}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231105 16:05:39.674" endtime="20231105 16:05:39.675"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${Datas.TitleBaglanti}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231105 16:05:39.682" level="INFO">Page title is 'Connexion • Instagram'.</msg>
+<status status="PASS" starttime="20231105 16:05:39.675" endtime="20231105 16:05:39.683"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:39.630" endtime="20231105 16:05:39.683"/>
+</kw>
+<kw name="Kullanıcı adı ve şifre alanlarını boş bırakın ve kontrol edin" library="InstagramPage">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${PlaceUsername}</var>
+<arg>${InsLocators.placeUsername}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:39.719" level="INFO">${PlaceUsername} = </msg>
+<status status="PASS" starttime="20231105 16:05:39.684" endtime="20231105 16:05:39.719"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${PlaceUsername}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<msg timestamp="20231105 16:05:39.721" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20231105 16:05:39.720" endtime="20231105 16:05:39.721"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${PlacePassword}</var>
+<arg>${InsLocators.placePassword}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231105 16:05:39.750" level="INFO">${PlacePassword} = </msg>
+<status status="PASS" starttime="20231105 16:05:39.721" endtime="20231105 16:05:39.750"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${PlacePassword}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<msg timestamp="20231105 16:05:39.750" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20231105 16:05:39.750" endtime="20231105 16:05:39.751"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<var>${is_disabled}</var>
+<arg>${InsLocators.btnGiris}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<msg timestamp="20231105 16:05:39.779" level="INFO">${is_disabled} = None</msg>
+<status status="PASS" starttime="20231105 16:05:39.751" endtime="20231105 16:05:39.779"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${is_disabled}' == 'True'</arg>
+<arg>Log</arg>
+<arg>Öğe devre dışıdır</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20231105 16:05:39.779" endtime="20231105 16:05:39.779"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:39.683" endtime="20231105 16:05:39.779"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231105 16:05:39.779" endtime="20231105 16:05:41.918"/>
+</kw>
+<status status="PASS" starttime="20231105 16:05:37.057" endtime="20231105 16:05:41.919"/>
+</test>
+<status status="PASS" starttime="20231105 16:05:14.280" endtime="20231105 16:05:41.921"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="InstagramTests">InstagramTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
