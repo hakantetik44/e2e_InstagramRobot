@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/e2e_InstagramRobot.iml" filepath="$PROJECT_DIR$/e2e_InstagramRobot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/e2e_YounupRobot.iml" filepath="$PROJECT_DIR$/.idea/e2e_YounupRobot.iml" />
     </modules>
   </component>
 </project>

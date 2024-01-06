@@ -1,11 +1,9 @@
+class LoginDatas:
+    Url = "https://greenmorrow.dev.younup.fr/home"
+    expectedTextSeConnecterAvecGoogle = "Se connecter avec Google"
+    expectedTextCréerUnCompte = "Créer un compte"
+    expectedTextSeConnecterAvecEmail = "Se connecter avec email/pseudo"
+    password="GreenMorrow123"
+    expectedTextMesPlantes="Mes plantes"
 
-class  Datas:
-    UrlInsta= "https://www.instagram.com/accounts/login/?hl=fr"
-    Email = "playhakanqa@outlook.com"
-    Password = "PayLead"
-    GeçersizSifre="fdsqfsqfsdq"
-    GeçersizKullaniciAdi="fsfsdqfdsq@gmail.com"
-    ExpectedBtnFaceTexti="Se connecter avec Facebook"
-    TitleBaglanti= "Connexion • Instagram"
-    expectedHataMesajiYanlisSifre="Votre mot de passe est incorrect. Veuillez le vérifier."
-    expectedHataMesajiYanlisKullaniciAdi="Désolé, votre mot de passe est incorrect. Veuillez vérifier votre mot de passe."
+

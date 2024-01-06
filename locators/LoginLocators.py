@@ -1,3 +1,12 @@
-
-class LoginLocators:
+class LogLocators:
     seConnecterAvecGoogle="css=.nsm7Bb-HzV7m-LgbsSe-BPrWId"
+    seConnecterAvecEmail="xpath=//span[@class='button-text']"
+    créerUnCompte="css=.create-button-text"
+    textInscription="xpath=(//mat-label[text()='Inscription'])[1]"
+    placeEmail="css=#email"
+    placeUtilisateur="css=#username"
+    btnContinuer="xpath=//span[text()='Continuer']"
+    placePassword="css=#password"
+    placePasswordConfirm="css=#passwordConfirmed"
+    btnCréerUnCompte="xpath=//span[text()='Créer un compte et me connecter']"
+    mesPlantes="xpath=//span[text()='Mes plantes']"

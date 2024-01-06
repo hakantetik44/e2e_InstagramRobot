@@ -1,45 +1,24 @@
 *** Settings ***
-Library   SeleniumLibrary
-Resource   ../pages/InstagramPage.robot
+Library    SeleniumLibrary
+Resource    ../pages/LoginPage.robot
 
 
-Test Setup     Instagram anasayfasina git
-Test Teardown   Close Browser
+Test Setup     Aller sur le site de GreenMorrow
+Test Teardown    Close Browser
 
 
 *** Test Cases ***
-Başarılı instagram sayfası testi
-    Instagram giriş sayfasina başarı ile bağlandığını dogrula
-    Kullanıcı adını ve şifreyi gir
-    Anasaya başarılı bir şekilde bağlandığını dogrula
+Vérifier la page d'accueil
+   Vérifie l'URL
+   Vérifie les autres éléments de la page
 
-Instagram'a geçersiz şifreyle giriş
-   Geçersiz şifreyi gir
-   Hata mesajını dogrula
-
-Instagram'a geçersiz kullanıcı adı ile giriş
-   Geçersiz kullanıcı adı gir
-   Kullanıcı adı hata mesajını dogrula
-
-Boş bir kullanıcı adı ve şifreyle giriş yap
-  Instagram giriş sayfasina başarı ile bağlandığını dogrula
-  Kullanıcı adı ve şifre alanlarını boş bırakın ve kontrol edin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Créer un compte
+   Crée un compte avec des utilisateurs différents
+   Générer une Adresse E-mail Aléatoire
+   Générer un Utilisateur Aléatoire
+   Vérifier et Cliquer sur le Bouton Continuer
+   Générer un Mot de Passe
+   Cliquer sur Créer un compte et me connecter
+   Vérifier la Connexion à la Page d'Accueil
 
 

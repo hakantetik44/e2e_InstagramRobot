@@ -1,77 +1,72 @@
 *** Settings ***
-Library    SeleniumLibrary
-Library    OperatingSystem
+Library     SeleniumLibrary
+Library     FakerLibrary
+Library    Collections
+Library    String
 Variables   ../keywords/Data.py
-Variables   ../locators/Locators.py
+Variables   ../locators/LoginLocators.py
+
+
+
+*** Variables ***
+${Browser}    chrome
+
+
 
 
 
 *** Keywords ***
-Instagram anasayfasina git
-   Open Browser   ${Datas.UrlInsta}     chrome
+Aller sur le site de GreenMorrow
+   Open Browser    ${LoginDatas.Url}     browser=${Browser}
+   Set Selenium Implicit Wait    5
    Maximize Browser Window
-   Set Selenium Implicit Wait    10s
-   Click Element    ${InsLocators.AccepterCookies}
-   
-
-Instagram giriş sayfasina başarı ile bağlandığını dogrula
-   ${actualFaceBaglanText}   Get Text    ${InsLocators.btnFaceBaglan}
-   Should Be Equal   ${actualFaceBaglanText}     ${Datas.ExpectedBtnFaceTexti}
-   Title Should Be    ${Datas.TitleBaglanti}
 
 
-Kullanıcı adını ve şifreyi gir 
-   Input Text    ${InsLocators.placeUsername}    ${Datas.Email}
-   Input Text    ${InsLocators.placePassword}    ${Datas.Password}
-   Sleep    2s
-   Click Element    ${InsLocators.btnGiris}
+Vérifie l'URL
+   Location Should Be    ${LoginDatas.Url}
+
+Vérifie les autres éléments de la page
+   ${actualTextSeConnecterAvecGoogle}   Get Text    ${LogLocators.seConnecterAvecGoogle}
+   Should Be Equal      ${actualTextSeConnecterAvecGoogle}   ${LoginDatas.expectedTextSeConnecterAvecGoogle}
+   Log To Console    Texte actuel : ${actualTextSeConnecterAvecGoogle}
+
+  ${actualTextSeConnecterAvecEmail}   Get Text    ${LogLocators.seConnecterAvecEmail}
+   Should Be Equal      ${actualTextSeConnecterAvecEmail}   ${LoginDatas.expectedTextSeConnecterAvecEmail}
+   Log To Console    Texte actuel : ${actualTextSeConnecterAvecEmail}
+
+   ${actualTextcréerUnCompte}   Get Text    ${LogLocators.créerUnCompte}
+   Should Be Equal      ${actualTextcréerUnCompte}   ${LoginDatas.expectedTextCréerUnCompte}
+   Log To Console    Texte actuel : ${actualTextcréerUnCompte}
+
+Crée un compte avec des utilisateurs différents
+  Click Element    ${LogLocators.créerUnCompte}
+  ${actualTextInsription}  Get Text  ${LogLocators.textInscription}
+  Should Be Equal As Strings    ${actualTextInsription}    Inscription
+
+Générer une Adresse E-mail Aléatoire
+  ${fake_email}=   FakerLibrary.Email
+  Input Text        ${LogLocators.placeEmail}    ${fake_email}
+  Log To Console      ${fake_email}
+
+Générer un Utilisateur Aléatoire
+  ${fake_name} =   FakerLibrary.Name
+  Input Text     ${LogLocators.placeUtilisateur}    ${fake_name}
+  Log To Console    ${LogLocators.placeUtilisateur}
+
+Vérifier et Cliquer sur le Bouton Continuer
+  Click Element    ${LogLocators.btnContinuer}
+
+Générer un Mot de Passe
+  Input Text     ${LogLocators.placePassword}      ${LoginDatas.password}
+  Input Text     ${LogLocators.placePasswordConfirm}    ${LoginDatas.password}
+
+Cliquer sur Créer un compte et me connecter
+  Click Element    ${LogLocators.btnCréerUnCompte}
 
 
-
-Anasaya başarılı bir şekilde bağlandığını dogrula
-   Wait Until Page Contains    Instagram
-
-
-Geçersiz şifreyi gir
-    Input Text    ${InsLocators.placeUsername}    ${Datas.Email}
-    Input Text    ${InsLocators.placePassword}    ${Datas.GeçersizSifre}
-    Sleep    2s
-    Click Element    ${InsLocators.btnGiris}
-
-Hata mesajını dogrula 
-  ${SifreHataMesaji}    Get Text      ${InsLocators.placaHataMesaji}
-  Should Be Equal      ${SifreHataMesaji}    ${Datas.expectedHataMesajiYanlisSifre}
-
-Geçersiz kullanıcı adı gir
-    Input Text    ${InsLocators.placeUsername}    ${Datas.GeçersizKullaniciAdi}
-    Input Text    ${InsLocators.placePassword}    ${Datas.Password}
-    Sleep    2s
-    Click Element    ${InsLocators.btnGiris}
-
-Kullanıcı adı hata mesajını dogrula
-  ${SifreHataMesaji}    Get Text      ${InsLocators.placaHataMesaji}
-  Should Be Equal      ${SifreHataMesaji}    ${Datas.expectedHataMesajiYanlisKullaniciAdi}
-
-Kullanıcı adı ve şifre alanlarını boş bırakın ve kontrol edin
-    ${PlaceUsername}    Get Text    ${InsLocators.placeUsername}
-    Should Be Empty    ${PlaceUsername}
-
-    ${PlacePassword}   Get Text   ${InsLocators.placePassword}
-    Should Be Empty     ${PlacePassword}
-
-    ${is_disabled} =  Element Should Be Disabled    ${InsLocators.btnGiris}
-     Run Keyword If    '${is_disabled}' == 'True'    Log     Öğe devre dışıdır
-
-
-
-
-
-
-
-
-
-
-
+Vérifier la Connexion à la Page d'Accueil
+    ${mesPlantes}    Get Text    ${LogLocators.mesPlantes}
+    Should Be Equal As Strings    ${mesPlantes}     ${LoginDatas.expectedTextMesPlantes}
 
 
 
